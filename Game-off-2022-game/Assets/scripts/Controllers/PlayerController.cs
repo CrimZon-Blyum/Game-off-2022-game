@@ -15,4 +15,13 @@ public class PlayerController : InputController
     {
         return Input.GetAxisRaw("Horizontal");
     }
+
+    public override bool RetrieveCrouchInput()
+    {
+        return Input.GetButtonDown("Crouch");
+    }
+    public override bool RetrieveUncrouchInput()
+    {
+        return Input.GetButtonUp("Crouch");
+    }
 }

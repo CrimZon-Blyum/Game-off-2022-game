@@ -15,4 +15,14 @@ public class AIController : InputController
     {
         return 1f;
     }
+
+    public override bool RetrieveCrouchInput()
+    {
+        return false;
+    }
+
+    public override bool RetrieveUncrouchInput()
+    {
+        return false;
+    }
 }
