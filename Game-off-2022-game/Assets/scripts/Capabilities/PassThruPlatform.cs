@@ -16,11 +16,7 @@ public class PassThruPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (_playerOnPlatform && Input.GetButtonDown("Crouch"))
-        {
-            _collider.enabled = false;
-            StartCoroutine(EnableCollider());
-        }
+        
     }
 
     private IEnumerator EnableCollider()
@@ -32,10 +28,12 @@ public class PassThruPlatform : MonoBehaviour
     private void SetPlayerOnPlatform(Collision2D other, bool value)
     {
         var player = other.gameObject.GetComponent<IsPlayer>();
+        var player_coll = other.gameObject.GetComponent<BoxCollider2D>();
         if (player != null)
         {
             _playerOnPlatform = value;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     [SerializeField] private InputController input = null;
+    [SerializeField] private BoxCollider2D normal_collider = null;
     [SerializeField] private GameObject normal = null;
     [SerializeField] private GameObject crouch = null;
 
@@ -47,12 +48,14 @@ public class Crouch : MonoBehaviour
     private void CrouchAction()
     {
         normal.SetActive(false);
+        normal_collider.enabled = false;
         crouch.SetActive(true);
     }
 
     private void UncrouchAction()
     {
         normal.SetActive(true);
+        normal_collider.enabled = true;
         crouch.SetActive(false);
     }
 
