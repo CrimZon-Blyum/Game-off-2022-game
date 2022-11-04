@@ -29,7 +29,7 @@ public class Crouch : MonoBehaviour
     private void FixedUpdate()
     {
         onGround = ground.GetOnGround();
-        if (desiredCrouch )
+        if (desiredCrouch)
         {
             if (onGround)
             {
