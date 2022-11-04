@@ -471,6 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 9ac40a35151a0d040b5b41cd882afa5a, type: 2}
   normal_collider: {fileID: 1295108697523593441}
+  normal_Ecollider: {fileID: 7041967739471237189}
   normal: {fileID: 7041967737917071880}
   crouch: {fileID: 7041967738306768596}
 --- !u!114 &510164483
