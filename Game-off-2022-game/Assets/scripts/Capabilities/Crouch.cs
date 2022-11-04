@@ -6,6 +6,7 @@ public class Crouch : MonoBehaviour
 {
     [SerializeField] private InputController input = null;
     [SerializeField] private BoxCollider2D normal_collider = null;
+    [SerializeField] private EdgeCollider2D normal_Ecollider = null;
     [SerializeField] private GameObject normal = null;
     [SerializeField] private GameObject crouch = null;
 
@@ -36,27 +37,31 @@ public class Crouch : MonoBehaviour
             }
             desiredCrouch = false;
         }
-        if (desiredUncrouch || !onGround)
+        if (desiredUncrouch || input.RetrieveJumpInput())
         {
-            UncrouchAction();
+            Uncrouch();
             desiredUncrouch = false;
         }
 
         
     }
 
-    private void CrouchAction()
-    {
-        normal.SetActive(false);
-        normal_collider.enabled = false;
-        crouch.SetActive(true);
-    }
-
-    private void UncrouchAction()
+    private void Uncrouch()
     {
         normal.SetActive(true);
         normal_collider.enabled = true;
         crouch.SetActive(false);
+        normal_Ecollider.enabled = true;
     }
+
+    private void CrouchAction()
+    {
+        crouch.SetActive(true);
+        normal.SetActive(false);
+        normal_collider.enabled = false;
+        normal_Ecollider.enabled = false;
+    }
+
+
 
 }
