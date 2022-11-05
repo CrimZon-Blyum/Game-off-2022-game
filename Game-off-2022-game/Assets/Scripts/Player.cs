@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ShieldBar shieldBar;
     public bool Dead = false;
+    public float regen = 100f;
 
     private void Start()
     {
@@ -41,20 +42,13 @@ public class Player : MonoBehaviour
 
     public IEnumerator ShieldGen()
     {
-        if (timer > 0)
+       
+        while (Shield < MaxShield)
         {
-            timer -= 1;
-            yield return new WaitForSeconds(0.9f);
-        }
-        else
-        {
-            while (Shield < MaxShield)
-            {
-                GainShield(0.01f * Time.deltaTime);
-                
-            }
-        }
-        
+            GainShield( regen * Time.deltaTime);
+            yield return new WaitForSeconds(0.1f);
+
+        } 
     }
 
     void GainShield(float ShieldGained)
@@ -82,7 +76,7 @@ public class Player : MonoBehaviour
         shieldBar.SetShield(Shield);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (Shield <= 0)
         {
