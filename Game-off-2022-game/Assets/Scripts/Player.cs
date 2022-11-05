@@ -1,21 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public  int MaxHealth = 100;
-    public float CurrentHealth;
-    public int MaxShield = 20;
-    public int Shield = 0;
-
+    public  int MaxHealth = 500;
+    [HideInInspector, Range(0f, 500f)] public float CurrentHealth;
+    public int MaxShield = 250;
+    [HideInInspector, Range(0f, 250f)] public float Shield = 0;
+    public int timerStart = 3;
+    private float timer;
     public HealthBar healthBar;
     public ShieldBar shieldBar;
     public bool Dead = false;
 
     private void Start()
     {
+        Shield = MaxShield;
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
         shieldBar.SetMaxShield(MaxShield);
@@ -30,18 +30,50 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(2);
+            TakeDamage(100);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            GainShield(20);
+            StartCoroutine(ShieldGen());
         }
+
     }
 
-    void GainShield(int ShieldGained)
+    public IEnumerator ShieldGen()
     {
-        Shield += ShieldGained;
-        shieldBar.SetShield(Shield);
+        if (timer > 0)
+        {
+            timer -= 1;
+            yield return new WaitForSeconds(0.9f);
+        }
+        else
+        {
+            while (Shield < MaxShield)
+            {
+                GainShield(0.01f * Time.deltaTime);
+                
+            }
+        }
+        
+    }
+
+    void GainShield(float ShieldGained)
+    {
+        if (Shield >= MaxShield)
+        {
+            Shield = MaxShield;
+            shieldBar.SetShield(Shield);
+        }
+        else
+        {
+            Shield += ShieldGained;
+            shieldBar.SetShield(Shield);
+            if (Shield >= MaxShield)
+            {
+                Shield = MaxShield;
+                shieldBar.SetShield(Shield);
+            }
+        }
     }
 
     void LoseShield(int ShieldLost)

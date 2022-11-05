@@ -524,7 +524,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 225396b1dd311e545aa64c1dd65bd482, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &1184601455
 SpriteRenderer:
@@ -787,6 +787,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4067549076576752495, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_Value
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549076576752495, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_MaxValue
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549076633272765, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_Value
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549076633272765, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_MaxValue
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4067549076767718699, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -885,8 +901,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
+      propertyPath: MaxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
       propertyPath: MaxShield
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
       propertyPath: healthBar

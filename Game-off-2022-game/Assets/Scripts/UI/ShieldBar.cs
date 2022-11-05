@@ -12,12 +12,12 @@ public class ShieldBar : MonoBehaviour
 
     public void Start()
     {
-        shieldText.text = "0";
-        slider.value = 0;
+        shieldText.text = "250";
     }
     public void SetMaxShield(int Shield)
     {
         slider.maxValue = Shield;
+        slider.value = Shield;
         shieldText.text = shieldText.text;
         fill.color = gradient.Evaluate(1f);
     }
