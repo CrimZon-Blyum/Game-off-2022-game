@@ -8,6 +8,7 @@ TagManager:
   - PassThru
   - enemy
   - Ladder
+  - HitBox
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemy
   - PassingThru
   - Ladder
-  - 
+  - HitBox
   - 
   - 
   - 
