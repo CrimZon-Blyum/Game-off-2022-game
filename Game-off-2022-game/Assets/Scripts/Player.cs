@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
 {
     public  int MaxHealth = 100;
     public float CurrentHealth;
+    public int MaxShield = 20;
+    public int Shield = 0;
 
     public HealthBar healthBar;
+    public ShieldBar shieldBar;
     public bool Dead = false;
 
     private void Start()
     {
         CurrentHealth = MaxHealth;
         healthBar.SetMaxHealth(MaxHealth);
+        shieldBar.SetMaxShield(MaxShield);
     }
 
     private void Update()
@@ -28,21 +32,46 @@ public class Player : MonoBehaviour
         {
             TakeDamage(2);
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GainShield(20);
+        }
+    }
+
+    void GainShield(int ShieldGained)
+    {
+        Shield += ShieldGained;
+        shieldBar.SetShield(Shield);
+    }
+
+    void LoseShield(int ShieldLost)
+    {
+        Shield -= ShieldLost;
+        shieldBar.SetShield(Shield);
     }
 
     void TakeDamage(int damage)
     {
-        if (CurrentHealth <= 0)
+        if (Shield <= 0)
         {
-            Debug.LogError("You're already dead");
+            if (CurrentHealth <= 0)
+            {
+                Debug.LogError("You're already dead");
+            }
+            else
+            {
+                CurrentHealth -= damage;
+
+                healthBar.SetHealth(CurrentHealth);
+            }
         }
         else
         {
-            CurrentHealth -= damage;
-
-            healthBar.SetHealth(CurrentHealth);
+            LoseShield(damage);
         }
     }
+   
+        
 
     void die()
     {

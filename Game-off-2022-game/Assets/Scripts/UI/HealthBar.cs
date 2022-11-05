@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
-
+        healthText.text = health.ToString();
         fill.color = gradient.Evaluate(1f);
     }
 
