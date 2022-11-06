@@ -34,18 +34,22 @@ public class AIPatrol : MonoBehaviour
         distToPlayer = Vector2.Distance(transform.position, Player.position);
         if (distToPlayer < range)
         {
-            if(Player.position.x > transform.position.x && transform.localScale.x < 0 || Player.position.x < transform.position.x && transform.localScale.x > 0)
+            if (distToPlayer != 0)
             {
-                Flip();
+                if (Player.position.x > transform.position.x && transform.localScale.x < 0 || Player.position.x < transform.position.x && transform.localScale.x > 0)
+                {
+                    Flip();
+                }
+                mustPatrol = false;
+                Rb.velocity = Vector2.zero;
+                Attack();
             }
-            mustPatrol = false;
-            Rb.velocity = Vector2.zero;
-            Attack();
+            else
+            {
+                mustPatrol = true;
+            }
         }
-        else
-        {
-            mustPatrol = true;
-        }
+            
     }
 
     private void FixedUpdate()
@@ -77,10 +81,10 @@ public class AIPatrol : MonoBehaviour
     {
         float dist = Vector2.Distance(Player.position, transform.position);
         //check if it is within the range you set
-        if(dist <= range)
+        if(dist < range)
         {
             //move to target(player) 
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed);
+            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, 50);
         }
     }
 }
