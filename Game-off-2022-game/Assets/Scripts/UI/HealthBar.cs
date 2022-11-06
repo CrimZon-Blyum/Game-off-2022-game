@@ -15,15 +15,18 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
-        healthText.text = health.ToString();
+        healthText.text = health.ToString() + "/" + slider.maxValue.ToString();
         fill.color = gradient.Evaluate(1f);
     }
 
     public void SetHealth(float health)
     {
+        if (health <= 0)
+        {
+            health = 0;
+        }
         slider.value = health;
-        healthText.text = health.ToString();
-
+        healthText.text = health.ToString() + "/" + slider.maxValue.ToString();
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }

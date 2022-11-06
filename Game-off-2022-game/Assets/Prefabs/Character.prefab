@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7041967737917071893}
   m_Layer: 7
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7041967738306768593}
   m_Layer: 9
   m_Name: Crouch
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 7041967738627727034}
   m_Layer: 7
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 9ac40a35151a0d040b5b41cd882afa5a, type: 2}
-  jumpHeight: 3
-  maxAirJumps: 0
+  jumpHeight: 9
+  maxAirJumps: 1
   downwardMovementMultiplier: 3
   upwardMovementMultiplier: 1.7
 --- !u!114 &7041967739471237191
@@ -525,7 +525,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e93b1bb15cd26d4b9b9bded7598e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 500
   CurrentHealth: 0
+  MaxShield: 250
+  Shield: 0
+  timerStart: 0
   healthBar: {fileID: 0}
+  shieldBar: {fileID: 0}
   Dead: 0
+  regen: 1100

@@ -93,7 +93,17 @@ public class Player : MonoBehaviour
         }
         else
         {
-            LoseShield(damage);
+            if (Shield < damage)
+            {
+                damage -= (int)Shield;
+                Shield = 0;
+                shieldBar.SetShield(Shield);
+                TakeDamage(damage);
+            }
+            else
+            {
+                LoseShield(damage);
+            }
         }
     }
    

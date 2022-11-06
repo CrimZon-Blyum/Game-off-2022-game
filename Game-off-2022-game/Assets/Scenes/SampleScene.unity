@@ -331,12 +331,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4690601
 --- !u!114 &734838292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,9 +390,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.19297409, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -410,7 +410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734838290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -4, z: 0}
+  m_LocalPosition: {x: -0.54, y: -3.06, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -701,7 +701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184601452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.48, y: -3.3, z: 0}
+  m_LocalPosition: {x: -3.5, y: -2.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -886,6 +886,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 788131916}
     m_Modifications:
+    - target: {fileID: 2072709502016505866, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_Text
+      value: 500/500
+      objectReference: {fileID: 0}
     - target: {fileID: 4067549076302647664, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -901,6 +905,14 @@ PrefabInstance:
     - target: {fileID: 4067549076568002266, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549076576752489, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 158.4824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549076576752489, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -6.0913
       objectReference: {fileID: 0}
     - target: {fileID: 4067549076576752495, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
       propertyPath: m_Value
@@ -1006,6 +1018,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health and Shield indicators
       objectReference: {fileID: 0}
+    - target: {fileID: 4067549077480254075, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_Text
+      value: 250/250
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549078317594525, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -37.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549078317594525, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -38.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067549078317594525, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba0e5c6eedad6a44805045c7bcf4dc4, type: 3}
 --- !u!1001 &7041967738962177605
@@ -1016,22 +1044,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: Dead
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: regen
-      value: 1100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: MaxHealth
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: MaxShield
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 624041445}
@@ -1039,18 +1051,6 @@ PrefabInstance:
       propertyPath: shieldBar
       value: 
       objectReference: {fileID: 701534003}
-    - target: {fileID: 5818368698655283681, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: timerStart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7041967739471237188, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: jumpHeight
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7041967739471237188, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
-      propertyPath: maxAirJumps
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7041967739471238074, guid: 9c10ab7aa4bbfd14f9a950825ac5f74d, type: 3}
       propertyPath: m_RootOrder
       value: 4

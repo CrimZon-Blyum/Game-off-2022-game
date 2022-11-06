@@ -12,7 +12,7 @@ public class ShieldBar : MonoBehaviour
 
     public void Start()
     {
-        shieldText.text = "250";
+        shieldText.text = "250/250";
     }
     public void SetMaxShield(int Shield)
     {
@@ -25,7 +25,7 @@ public class ShieldBar : MonoBehaviour
     public void SetShield(float Shield)
     {
         slider.value = Shield;
-        shieldText.text = Shield.ToString();
+        shieldText.text = Shield.ToString() + "/" + slider.maxValue.ToString();
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
