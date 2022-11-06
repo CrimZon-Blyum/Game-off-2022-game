@@ -21,6 +21,8 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(float health)
     {
+        health = Mathf.Round(health * 100) / 100;
+
         if (health <= 0)
         {
             health = 0;

@@ -24,6 +24,7 @@ public class ShieldBar : MonoBehaviour
 
     public void SetShield(float Shield)
     {
+        Shield = Mathf.Round(Shield * 100f) / 100f;
         slider.value = Shield;
         shieldText.text = Shield.ToString() + "/" + slider.maxValue.ToString();
 

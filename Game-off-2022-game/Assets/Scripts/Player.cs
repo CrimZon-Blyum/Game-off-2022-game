@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Range(0.01f,99.99f)] public float Armour = 10;
     public  int MaxHealth = 500;
-    [HideInInspector, Range(0f, 500f)] public float CurrentHealth;
+    [HideInInspector] public float CurrentHealth = 500;
     public int MaxShield = 250;
-    [HideInInspector, Range(0f, 250f)] public float Shield = 0;
+    [HideInInspector] public float Shield = 250;
     public int timerStart = 3;
     private float timer;
     public HealthBar healthBar;
@@ -16,8 +18,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Shield = MaxShield;
-        CurrentHealth = MaxHealth;
+        CurrentHealth = 500;
+        Shield = 250;
         healthBar.SetMaxHealth(MaxHealth);
         shieldBar.SetMaxShield(MaxShield);
     }
@@ -76,8 +78,11 @@ public class Player : MonoBehaviour
         shieldBar.SetShield(Shield);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        float originalDamage = damage;
+        damage = damage * ((100-Armour) / 100f);
+        Debug.Log(damage + " with armour, "+ originalDamage + "without armour.");
         if (Shield <= 0)
         {
             if (CurrentHealth <= 0)
@@ -102,12 +107,22 @@ public class Player : MonoBehaviour
             }
             else
             {
-                LoseShield(damage);
+                LoseShield((int)damage);
             }
         }
     }
    
-        
+    public void tempHealth(float amount)
+    {
+        CurrentHealth = CurrentHealth + amount;
+        healthBar.SetHealth(CurrentHealth);
+    }
+
+    public void tempShield(int amount)
+    {
+        Shield = Shield + amount;
+        shieldBar.SetShield(Shield);
+    }
 
     void die()
     {
