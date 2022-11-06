@@ -26,6 +26,31 @@ public class AIPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(distToPlayer < range)
+        {
+            if (Player.position.x > transform.position.x + 0.3 && transform.localScale.x < 0 )
+            {
+                speed = -120;
+            }
+            else if (Player.position.x < transform.position.x - 0.3 && transform.localScale.x > 0)
+            {
+                speed = 120;
+            }
+        }
+        else
+        {
+            if (Player.position.x > transform.position.x + 0.3 && transform.localScale.x < 0)
+            {
+                speed = -100;
+            }
+            else if (Player.position.x < transform.position.x - 0.3 && transform.localScale.x > 0)
+            {
+                speed = 100;
+            }
+
+        }
+
         if (mustPatrol)
         {
             Patrol();
@@ -34,15 +59,13 @@ public class AIPatrol : MonoBehaviour
         distToPlayer = Vector2.Distance(transform.position, Player.position);
         if (distToPlayer < range)
         {
+           
             if (distToPlayer != 0)
             {
-                if (Player.position.x > transform.position.x && transform.localScale.x < 0 || Player.position.x < transform.position.x && transform.localScale.x > 0)
+                if (Player.position.x > transform.position.x + 0.3 && transform.localScale.x < 0 || Player.position.x < transform.position.x - 0.3 && transform.localScale.x > 0)
                 {
                     Flip();
                 }
-                mustPatrol = false;
-                Rb.velocity = Vector2.zero;
-                Attack();
             }
             else
             {
@@ -62,7 +85,7 @@ public class AIPatrol : MonoBehaviour
 
     void Patrol()
     {
-        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
+        if ((mustTurn || bodyCollider.IsTouchingLayers(groundLayer)))
         {
             Flip();
         }
@@ -75,16 +98,5 @@ public class AIPatrol : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         speed *= -1;
         mustPatrol = true;
-    }
-
-    void Attack()
-    {
-        float dist = Vector2.Distance(Player.position, transform.position);
-        //check if it is within the range you set
-        if(dist < range)
-        {
-            //move to target(player) 
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, 50);
-        }
     }
 }
