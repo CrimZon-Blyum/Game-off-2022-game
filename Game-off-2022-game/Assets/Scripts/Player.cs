@@ -31,11 +31,11 @@ public class Player : MonoBehaviour
             die();
             Dead = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.Dm)
         {
             TakeDamage(100);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && GameManager.Dm)
         {
             StartCoroutine(ShieldGen());
         }

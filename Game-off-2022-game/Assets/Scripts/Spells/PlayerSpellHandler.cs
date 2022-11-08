@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerSpellHandler : MonoBehaviour
 {
-    public Spell[] EquipedSpells;
-    public Spell ActiveSpell = null;
+    public GameObject[] EquipedSpells;
+    public GameObject ActiveSpell = null;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,9 @@ public class PlayerSpellHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        Debug.Log(ActiveSpell.RetreiveDamage());
+        if (Input.GetKeyDown("q") && GameManager.Dm)
+        {
+            
+        }
     }
 }

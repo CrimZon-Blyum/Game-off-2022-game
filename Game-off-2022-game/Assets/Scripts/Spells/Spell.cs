@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Spell : ScriptableObject
 {
-    public abstract int RetreiveDamage();
+    public abstract int Damage();
+    public abstract string D_Type();
 
+    public abstract void Activate();
 }
